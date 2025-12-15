@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year 2026 Card Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Effects Container -->
+    <div id="snow-container" class="effects-container"></div>
+    <div id="confetti-container" class="effects-container hidden"></div>
+    <div id="sparkles-container" class="effects-container"></div>
+    <div id="decorations-container" class="effects-container"></div>
+
+    <!-- Canvas Drawing System -->
+    <div class="canvas-container">
+        <canvas id="drawing-canvas"></canvas>
+    </div>
+
+    <!-- Drawing Tools -->
+  
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <button id="language-toggle" class="audio-btn" title="English / Монгол">
+            <span class="icon">EN</span>
+        </button>
+        <button id="music-toggle" class="audio-btn">
+            <span class="icon">🎵</span>
+        </button>
+        <button id="effects-toggle" class="audio-btn">
+            <span class="icon">🔊</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Landing Section -->
+        <section id="landing" class="section landing-section active">
+            <div class="animated-trees">
+                <div class="tree tree-1">
+                    <img src="assets/decorations/trees/tree1.png" alt="Winter Tree" class="tree-image">
+                </div>
+                <div class="tree tree-2">
+                    <img src="assets/decorations/trees/tree2.png" alt="Christmas Tree" class="tree-image">
+                </div>
+                <div class="tree tree-3">
+                    <img src="assets/decorations/trees/tree3.png" alt="Pine Tree" class="tree-image">
+                </div>
+                <div class="tree tree-4">
+                    <img src="assets/decorations/trees/tree4.png" alt="Small Tree" class="tree-image">
+                </div>
+            </div>
+            
+            <div class="content-wrapper">
+                <h1 class="main-title">
+                    <span class="title-line" data-translate="welcomeTitle">Welcome to</span>
+                    <span class="title-line highlight" data-translate="newYearTitle">New Year 2026</span>
+                    <span class="title-line" data-translate="cardCollectionTitle">Card Collection</span>
+                </h1>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-container">
+                    <h2 class="countdown-label" data-translate="timeUntilLabel">Time Until New Year</h2>
+                    <div class="countdown-display">
+                        <div class="time-unit">
+                            <span id="days" class="time-number">00</span>
+                            <span class="time-label" data-translate="daysLabel">Days</span>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-unit">
+                            <span id="hours" class="time-number">00</span>
+                            <span class="time-label" data-translate="hoursLabel">Hours</span>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-unit">
+                            <span id="minutes" class="time-number">00</span>
+                            <span class="time-label" data-translate="minutesLabel">Minutes</span>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-unit">
+                            <span id="seconds" class="time-number">00</span>
+                            <span class="time-label" data-translate="secondsLabel">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Access Form -->
+                <div class="card-access">
+                    <h3 class="access-title" data-translate="enterCodeTitle">Enter Your Personal Card Code</h3>
+                    <div class="code-input-container">
+                        <input type="text" id="card-code" data-translate-placeholder="codePlaceholder" placeholder="Enter your unique code" maxlength="12" autocomplete="off">
+                        <button id="view-card-btn" class="view-card-btn" data-translate="viewCardBtn">View My Card</button>
+                    </div>
+                    <p class="access-hint" data-translate="accessHint">💡 Your personal code was shared with you privately</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card Display Section -->
+        <section id="card-section" class="section card-section">
+            <div class="page-transition-overlay"></div>
+            <div class="card-container">
+                <button id="back-btn" class="back-btn" data-translate="backBtn">← Back to Countdown</button>
+                
+                <div class="card-wrapper">
+                    <div id="card-display" class="card-display">
+                        <!-- Krita card images will be loaded here -->
+                    </div>
+                    
+                    <div class="card-message">
+                        <p id="personal-message" class="message-text"></p>
+                        <p class="sender" data-translate="senderName">- With love from Erdene</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Audio Elements -->
+    <audio id="background-music" loop>
+        <source src="assets/audio/holiday-tune.mp3" type="audio/mpeg">
+        <source src="assets/audio/holiday-tune.ogg" type="audio/ogg">
+    </audio>
+    
+    <audio id="card-reveal-sound" preload="auto">
+        <source src="assets/audio/card-reveal.mp3" type="audio/mpeg">
+        <source src="assets/audio/card-reveal.wav" type="audio/wav">
+    </audio>
+    
+    <audio id="countdown-tick" preload="auto">
+        <source src="assets/audio/tick.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="draw-sound" preload="auto">
+        <source src="assets/audio/draw.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
